@@ -3,5 +3,5 @@
 // }
 
 if(navigator.serviceWorker){
-    navigator.serviceWorker.register('./serviceWorker.js');
+    navigator.serviceWorker.register('./sw.js');
 }
