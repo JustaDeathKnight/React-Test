@@ -14,7 +14,7 @@ const NumberInput = ({ name }) => {
 
   return (
     <>
-      <label className="mx-2 ">
+      <label className="mx-2 my-2">
         Numero 1:{" "}
         <input
           name="numero1"
