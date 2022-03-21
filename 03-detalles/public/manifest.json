@@ -1,6 +1,6 @@
 {
   "short_name": "Calculadora React",
-  "name": "Calculadora React App WPA",
+  "name": "Calculadora React App PWA",
   "icons": [
     {
       "src": "windows11/SmallTile.scale-100.png",
