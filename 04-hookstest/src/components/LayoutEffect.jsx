@@ -1,9 +1,9 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useEffect, useState } from "react";
 
 const LayoutEffect = () => {
   const [data, setData] = useState([]);
 
-  const efecto = data.length;
+  const [length, setLength] = useState(0);
 
   const newData = [
     {
@@ -12,17 +12,21 @@ const LayoutEffect = () => {
     },
   ];
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       setData(newData);
     }, 5000);
+  }, [input]);
+
+  useLayoutEffect(() => {
+    setLength(data.length);
   }, []);
 
   return (
     <>
       <h1>useLayoutEffect</h1>
       <hr />
-      <p> Valores {efecto}</p>
+      <p> Valores: {length}</p>
     </>
   );
 };
