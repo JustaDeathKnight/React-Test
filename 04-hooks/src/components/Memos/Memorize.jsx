@@ -6,14 +6,14 @@ const Memorize = () => {
   const [counter, setCounter] = useState(5);
   const [view, setView] = useState(true);
 
-  // const pesado = (iter) => {
-  //   for (let i = 0; i < iter; i++) {
-  //     console.log("procesando");
-  //   }
-  //   return "fin del proceso";
-  // };
+  const pesado = (iter) => {
+    for (let i = 0; i < iter; i++) {
+      console.log("procesando");
+    }
+    return "fin del proceso";
+  };
 
-  // const pesadoMemo = useMemo(() => pesado(counter), [counter]);
+  const pesadoMemo = useMemo(() => pesado(counter), [counter]);
 
   const add = useCallback(
     //recibe una funcion de lo que queremos ejecutar
@@ -30,7 +30,7 @@ const Memorize = () => {
         Memorizes: <Dato value={counter} />
       </h1>
       <hr />
-      {/* {pesadoMemo} */}
+      {pesadoMemo}
       <Btn add={add} />
       <button onClick={() => setView(!view)}>Quitar</button>
     </>
