@@ -1,4 +1,5 @@
 import React from "react";
+import Custom from "./components/Custom";
 import Memorize from "./components/Memos/Memorize";
 
 const App = () => {
