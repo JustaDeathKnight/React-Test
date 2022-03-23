@@ -16,7 +16,7 @@ const LayoutEffect = () => {
     setTimeout(() => {
       setData(newData);
     }, 5000);
-  }, [input]);
+  }, [newData]);
 
   useLayoutEffect(() => {
     setLength(data.length);
