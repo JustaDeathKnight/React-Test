@@ -1,9 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Card from "./Card";
+import Formimg from "./Formimg";
+import Loading from "./Loading";
 
 const Cards = () => {
   const [images, setImages] = useState([]);
   const [input, setInput] = useState("");
+
+  const [loading, setLoading] = useState(true);
 
   const peticion = useCallback(async () => {
     const key = "client_id=WWMwgxkNWj4_si0RMC3rUZfUgu9SbvoSOWOXvM5b8Wk";
@@ -16,6 +20,8 @@ const Cards = () => {
       )}&${key}`;
     }
 
+    setLoading(true);
+
     const res = await fetch(route);
     const data = await res.json();
 
@@ -24,13 +30,15 @@ const Cards = () => {
     } else {
       setImages(data);
     }
+
+    setLoading(false);
   }, [input]);
 
   useEffect(() => {
     peticion();
   }, [peticion]);
 
-  const hundleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const text = e.target[0].value;
 
@@ -38,18 +46,12 @@ const Cards = () => {
   };
 
   return (
-    <>
-      <form onSubmit={hundleSubmit}>
-        <label className="w-75">
-          {" "}
-          Buscar: <input className="w-100" type="text" name="inputText" />{" "}
-        </label>
-        <button type="submit" className="btn btn-warning  mx-2">
-          <span className="material-icons">travel_explore</span>
-        </button>
-      </form>
+    <div className="text-center">
+      <Formimg handleSubmit={handleSubmit} />
 
       <hr />
+
+      {loading && <Loading />}
 
       <div className="row">
         {images.map((img) => {
@@ -60,7 +62,7 @@ const Cards = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
