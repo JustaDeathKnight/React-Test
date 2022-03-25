@@ -1,10 +1,13 @@
 import React from "react";
+import Header from "./components/Header";
+import Contactos from "./components/Contactos";
 
 const App = () => {
   return (
-    <div>
-      <h1>Agenda React</h1>
-    </div>
+    <>
+      <Header />
+      <Contactos />
+    </>
   );
 };
 
