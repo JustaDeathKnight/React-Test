@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Formimg = (handleSubmit) => {
+const FormImg = ({ handleSubmit }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -17,8 +17,8 @@ const Formimg = (handleSubmit) => {
   );
 };
 
-Formimg.propTypes = {
+FormImg.propTypes = {
   handleSubmit: PropTypes.func,
 };
 
-export default Formimg;
+export default FormImg;
