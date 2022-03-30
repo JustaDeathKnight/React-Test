@@ -1,11 +1,15 @@
-import React from "react";
-import Header from "./Components/Header";
+import React, { useState } from "react";
+import { UserContext } from "./Contexts/UserContext";
+import AppRouter from "./Routes/AppRouter";
 
 const App = () => {
+  const [user, setUser] = useState(null);
+  const state = { user, setUser };
+
   return (
-    <>
-      <Header />
-    </>
+    <UserContext.Provider value={{ user, setUser }}>
+      <AppRouter />
+    </UserContext.Provider>
   );
 };
 
