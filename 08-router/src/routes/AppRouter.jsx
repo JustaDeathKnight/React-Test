@@ -7,6 +7,8 @@ import SearchScreen from "../pages/SearchScreen";
 import WomanScreen from "../pages/WomanScreen";
 
 const AppRouter = () => {
+
+  
   return (
     <>
       <Navbar />
