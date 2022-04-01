@@ -9,7 +9,9 @@ const CharacterScreen = () => {
 
   const { id } = useParams();
 
-  const handleBack = () => {};
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   const { type, name, description } = Characters.find(
     (character) => character.id === id
@@ -24,7 +26,7 @@ const CharacterScreen = () => {
           src={path}
           alt={id}
           className="img-thumbnail"
-          style={{ width: "70%", height: "400px" }}
+          style={{ width: 200}}
         />
       </div>
       <div className="col-4"></div>

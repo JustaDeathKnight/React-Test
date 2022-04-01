@@ -7,8 +7,6 @@ import SearchScreen from "../pages/SearchScreen";
 import WomanScreen from "../pages/WomanScreen";
 
 const AppRouter = () => {
-
-  
   return (
     <>
       <Navbar />
@@ -16,7 +14,7 @@ const AppRouter = () => {
         <Route exact path="/mens" element={<MenScreen />} />
         <Route exact path="/womans" element={<WomanScreen />} />
         <Route exact path="/search" element={<SearchScreen />} />
-        <Route path="/caharacter/:id" element={<CharacterScreen />} />
+        <Route path="/character/:id" element={<CharacterScreen />} />
         {/* <Route path="*" element={<div>404</div>} />{" "} */}
       </Routes>
     </>

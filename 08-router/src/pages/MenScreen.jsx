@@ -7,7 +7,7 @@ const MenScreen = () => {
 
   return (
     <div>
-      <h1>MenScreen</h1>
+      <h1>Mens Screen</h1>
       <hr />
       <div className="row">
         {mens.map((men) => (
