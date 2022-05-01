@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import queryString from "query-string";
 import { Characters } from "../models/Characters";
+import Card from "../components/Card";
 
 const SearchScreen = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const SearchScreen = () => {
   const { q = "" } = queryString.parse(location.search);
 
   const [inputValue, setInputValue] = useState(q);
-  const [caracters, setCaracters] = useState([]);
+  const [characters, setCaracters] = useState([]);
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -61,6 +62,17 @@ const SearchScreen = () => {
               Search
             </button>
           </form>
+        </div>
+        <div className="col-6">
+          <h2>Results: {characters.length}</h2>
+          {characters.length === 0 && (
+            <div className="alert alert-warning text-center">
+              Please search a Character
+            </div>
+          )}
+          {characters.map((character) => (
+            <Card key={character.id} {...character} />
+          ))}
         </div>
       </div>
     </div>

@@ -26,15 +26,16 @@ const CharacterScreen = () => {
           src={path}
           alt={id}
           className="img-thumbnail"
-          style={{ width: 200}}
+          style={{ width: '70%', height: '400px' }}
         />
       </div>
-      <div className="col-4"></div>
-      <h2>Nombre: {name}</h2>
-      <p>Descripción: {description}</p>
-      <button className="btn btn-outline-dark" onClick={handleBack}>
-        Go back
-      </button>
+      <div className="col-4">
+        <h2>Nombre: {name}</h2>
+        <p>Descripción: {description}</p>
+        <button className="btn btn-outline-dark" onClick={handleBack}>
+          Go back
+        </button>
+      </div>
     </div>
   );
 };
