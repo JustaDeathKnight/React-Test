@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 
@@ -13,15 +13,14 @@ const AppRouter = () => {
     <>
       <Navbar />
       <Suspense fallback={<h1 className="text-center">Loading...</h1>}>
-        <Switch>
-          <Route exact path="/mans" component={ManScreen} />
-          <Route exact path="/womans" component={WomanScreen} />
-          <Route exact path="/search" component={SearchScreen} />
+        <Routes>
+          <Route end path="/mans" element={<ManScreen />} />
+          <Route end path="/womans" element={<WomanScreen />} />
+          <Route end path="/search" element={<SearchScreen />} />
 
-          <Route exact path="/character/:id" component={CharacterScreen} />
-
-          <Redirect to="/mans" />
-        </Switch>
+          <Route end path="/character/:id" element={<CharacterScreen />} />
+          <Route path="*" element={<Navigate to="/mans" />} />
+        </Routes>
       </Suspense>
     </>
   );

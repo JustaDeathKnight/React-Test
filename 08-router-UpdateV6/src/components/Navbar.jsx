@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { authTypes } from "../types/authTypes";
 
 const Navbar = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const { dispatch } = useContext(AuthContext);
 
   const handleLogout = () => {
     dispatch({ type: authTypes.logout });
-    history.replace("/login");
+    navigate("/login");
   };
 
   return (
@@ -31,19 +31,17 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink
-                activeClassName="active text-white"
-                className="nav-link"
-                aria-current="page"
-                to="/mans"
-              >
+              <NavLink className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                } aria-current="page" to="/mans">
                 Mans
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                activeClassName="active text-white"
-                className="nav-link"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                }
                 aria-current="page"
                 to="/womans"
               >
@@ -51,12 +49,9 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-                activeClassName="active text-white"
-                className="nav-link"
-                aria-current="page"
-                to="/search"
-              >
+              <NavLink className={({ isActive }) =>
+                  `nav-link ${isActive ? "active text-white" : ""}`
+                } aria-current="page" to="/search">
                 Search
               </NavLink>
             </li>

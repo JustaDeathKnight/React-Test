@@ -1,15 +1,13 @@
-import React from "react";
-import { Redirect, Route } from "react-router";
+import React, { useContext } from "react";
+import { Navigate } from "react-router";
 
-const PrivateRouter = ({ auth, component: Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      component={(props) =>
-        auth.log ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
-  );
+import { AuthContext } from "../context/AuthContext";
+
+const PrivateRouter = ({ children }) => {
+  const { log } = useContext(AuthContext);
+
+  // if log.log is true, then Navigate to "/"
+  return log.log ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRouter;
