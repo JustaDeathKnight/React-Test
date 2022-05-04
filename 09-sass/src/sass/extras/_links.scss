@@ -1,0 +1,23 @@
+ul{
+    list-style: none;
+    li{
+        display: inline-block;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: $dark;
+
+        &:hover{
+            background-color: darken($color: $primary, $amount: 10);
+            box-shadow: 1px 1px 1px 2px #ccc;
+        }
+        a {
+            color: $white;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+                color: lighten($color: $secondary, $amount: 10);
+            }
+        }
+    }
+}
+
