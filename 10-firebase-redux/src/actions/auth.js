@@ -21,7 +21,7 @@ export const emailAndPasswordLogin = (email, password) => {
       .then(({ user }) => {
         console.log(user);
 
-        // dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName));
       });
 }
 }
