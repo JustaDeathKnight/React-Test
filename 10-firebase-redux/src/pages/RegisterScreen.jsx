@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { register } from "../actions/auth";
 
 const RegisterScreen = () => {
+  const dispatch = useDispatch();
+
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -22,23 +26,23 @@ const RegisterScreen = () => {
 
   const handleRegister = (event) => {
     event.preventDefault();
-
-    if (email.trim() === "" || !email.trim().includes('@') ) {
-      return
+    // control de la validacion de los campos, un poco humilde 🥺
+    if (username.trim().length < 2) {
+      return;
     }
-    if (username.trim().length <2) {
-      return
+    if (email.trim() === "" || !email.trim().includes("@")) {
+      return;
     }
-    if (password.trim().length <6) {
-      return
-    }else 
-    {
-      if (password.trim() !== confirmPassword.trim()){
-        return
+    if (password.trim().length < 6) {
+      return;
+    } else {
+      if (password.trim() !== confirmPassword.trim()) {
+        return;
       }
-    
     }
 
+    // si todo esta bien, se ejecuta el dispatch
+    dispatch(register(username, email, password));
 
   };
 

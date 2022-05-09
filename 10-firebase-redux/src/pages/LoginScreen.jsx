@@ -1,16 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import GoogleButton from "react-google-button";
 import { Link } from "react-router-dom";
 
-import { googleLogin } from "../actions/auth";
+import { googleLogin, emailAndPasswordLogin } from "../actions/auth";
 
 const LoginScreen = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = data;
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+
+    setData({
+      ...data,
+      [event.target.name]: value,
+    });
+  };
+
   const dispatch = useDispatch();
 
   const handleGoogleLogin = () => {
     dispatch(googleLogin());
+  };
+
+  const handleEmailLogin = (event) => {
+    event.preventDefault();
+
+    if (email.trim() === "" || !email.trim().includes("@")) {
+      return;
+    }
+    if (password.trim().length < 6) {
+      return;
+    }
+
+    dispatch(emailAndPasswordLogin(email, password));
   };
 
   return (
@@ -19,15 +48,18 @@ const LoginScreen = () => {
       <hr />
 
       <div className="row container">
-        <form className="col s12">
+        <form className="col s12" onSubmit={handleEmailLogin}>
           <div className="row">
             {/* Correo */}
             <div className="input-field col s12">
               <i className="material-icons prefix">email</i>
               <input
+                onChange={handleChange}
+                value={email}
+                name="email"
                 id="icon_prefix1"
                 className="materialize-textarea"
-                type="text"
+                type="email"
               />
               <label htmlFor="icon_prefix1">Email</label>
             </div>
@@ -35,6 +67,9 @@ const LoginScreen = () => {
             <div className="input-field col s12">
               <i className="material-icons prefix">vpn_key</i>
               <input
+                onChange={handleChange}
+                value={password}
+                name="password"
                 id="icon_prefix2"
                 className="materialize-textarea"
                 type="password"
