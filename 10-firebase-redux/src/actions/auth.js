@@ -1,14 +1,13 @@
 import { types } from "../types/types";
 import { firebase, googleAuthProvider } from "../firebase/config-firebase";
 
-
 export const googleLogin = () => {
   return (dispatch) => {
     firebase
-    .auth()
-    .signInWithPopup(googleAuthProvider)
-    .then(({ user }) => {
-      dispatch(login(user.uid, user.displayName));
+      .auth()
+      .signInWithPopup(googleAuthProvider)
+      .then(({ user }) => {
+        dispatch(login(user.uid, user.displayName));
       });
   };
 };
@@ -19,12 +18,10 @@ export const emailAndPasswordLogin = (email, password) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
-        console.log(user);
-
         dispatch(login(user.uid, user.displayName));
       });
-}
-}
+  };
+};
 export const register = (username, email, password) => {
   return (dispatch) => {
     firebase
@@ -45,5 +42,12 @@ export const login = (uid, displayName) => {
       uid,
       displayName,
     },
+  };
+};
+
+export const logout = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut();
+    dispatch({ type: types.logout });
   };
 };
