@@ -1,15 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
+// OBSOLETO PERO SE AÑADEN DESDE EL CREATE REACT APP :v
 
-ReactDOM.render(
-  <React.StrictMode>
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App />
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
+
+//ABAJO ESTA LA NUEVA VERSION --Gowther🐺
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+
+import "./index.css";
+import App from "./App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
+
+
+// 👇️ IMPORTANT: use correct ID of your root element
+// this is the ID of the div in your index.html file
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+// 👇️ if you use TypeScript, add non-null (!) assertion operator
+// const root = createRoot(rootElement!);
+
+root.render(
+  <StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

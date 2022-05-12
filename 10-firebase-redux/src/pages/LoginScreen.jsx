@@ -86,7 +86,7 @@ const LoginScreen = () => {
           </button>
           <hr />
           <GoogleButton onClick={handleGoogleLogin} />
-          <Link to="/register">Register with email...</Link>
+          <Link to="/auth/register">Register with email...</Link>
         </form>
       </div>
     </div>
