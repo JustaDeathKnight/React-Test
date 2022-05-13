@@ -15,22 +15,22 @@ const AppRouter = () => {
 
   const [log, setLog] = useState(false);
 
-  // useEffect(() => {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     if (user) {
-  //       dispatch(login(user.uid, user.displayName));
-  //       setLog(true);
-  //     } else {
-  //       setLog(false);
-  //     }
-  //   });
-  // }, [dispatch]);
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(login(user.uid, user.displayName));
+        setLog(true);
+      } else {
+        setLog(false);
+      }
+    });
+  }, [dispatch]);
 
   return (
     <Router>
       <Switch>
-        <PublicRouter path="/" component={AuthRouter} log={log} />
-        <PrivateRouter exact path="/app" log={log} component={AppScreen} />
+        <PublicRouter path="/auth" log={log} component={AuthRouter} />
+        <PrivateRouter exact path="/" log={log} component={AppScreen} />
       </Switch>
     </Router>
   );

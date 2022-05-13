@@ -6,7 +6,7 @@ const PrivateRouter = ({ log, component: Component, ...resto }) => {
     <Route
       {...resto}
       component={(props) =>
-        log ? <Component {...props} /> : <Redirect to="/login" />
+        log ? <Component {...props} /> : <Redirect to="/auth/login" />
       }
     />
   );

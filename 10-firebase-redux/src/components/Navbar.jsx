@@ -13,13 +13,15 @@ const Navbar = () => {
   return (
     <nav className='cyan darken-4'>
     <div className="nav-wrapper">
-      <a href="#" className="brand-logo left ">Requiem</a>
+      <a href="/" className="brand-logo">Requiem</a>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
-        <li><button className='btn deep-orange accent-4 waves-effect waves-light' onClick={handleLogout}>logout</button></li>
+        <li><a href="/" className='btn deep-orange accent-4 waves-effect waves-light' onClick={handleLogout}>logout</a></li>
         
       </ul>
     </div>
   </nav>
+
+
   )
 }
 
