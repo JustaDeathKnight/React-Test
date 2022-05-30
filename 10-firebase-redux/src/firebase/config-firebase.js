@@ -10,13 +10,12 @@ import "firebase/compat/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBNG5kVPTMs6Xf6O1UOQXX1V78Q2DnUzLc",
-  authDomain: "requiem-show.firebaseapp.com",
-  projectId: "requiem-show",
-  storageBucket: "requiem-show.appspot.com",
-  messagingSenderId: "541207039792",
-  appId: "1:541207039792:web:c449722e340155540942f5",
-  measurementId: "G-7NKW72MBH1",
+  apiKey: "AIzaSyA1Tgj0REwWnbskdxcZbsHojjrV-4hq3vI",
+  authDomain: "react-test-fbase.firebaseapp.com",
+  projectId: "react-test-fbase",
+  storageBucket: "react-test-fbase.appspot.com",
+  messagingSenderId: "13491566983",
+  appId: "1:13491566983:web:5b3fd7ef66e835ea40bb22"
 };
 
 // Initialize Firebase

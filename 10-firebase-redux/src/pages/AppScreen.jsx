@@ -1,16 +1,10 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { crearRegistro } from "../actions/nomina";
+import { useSelector } from "react-redux";
+import FormAdd from "../components/FormAdd";
 import Navbar from "../components/Navbar";
 
 const AppScreen = () => {
   const { auth } = useSelector((state) => state);
-
-const dispatch = useDispatch();
-
-const handleAdd = () => {
-  dispatch(crearRegistro());
-}
 
   return (
     <>
@@ -23,7 +17,7 @@ const handleAdd = () => {
             : auth.displayName}
         </h3>
         <hr />
-        <button onClick={handleAdd} className="btn green">Agregar</button>
+        <FormAdd />
       </div>
     </>
   );
