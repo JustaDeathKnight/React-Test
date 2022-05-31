@@ -7,9 +7,6 @@ const FormAdd = () => {
 
   const [viewForm, setViewForm] = useState(false);
 
-  //   const [precioHora, setPrecioHora] = useState(0);
-  //   const [horas, setHoras] = useState(0);
-
   const [cantidadPago, setCantidadPago] = useState({ precioHora: 0, horas: 0 });
 
   const { precioHora, horas } = cantidadPago;
@@ -19,9 +16,6 @@ const FormAdd = () => {
   };
 
   const handleChange = (e) => {
-    // setPrecioHora(parseFloat(e.target.value));
-    // setHoras(parseFloat(e.target.value));
-
     setCantidadPago({ ...cantidadPago, [e.target.name]: e.target.value });
   };
 
@@ -33,17 +27,17 @@ const FormAdd = () => {
   return (
     <>
       <button onClick={handleAdd} className="btn green">
-        Agregar
+        {!viewForm ? "Agregar" : "Cerrar"}
       </button>
       {viewForm && (
-        <>
+        <div className="container">
           <label className="form-add">
             <h5>Agregar Nuevo Registro</h5>
             <hr />
             <input
               type="text"
               placeholder="Ingrese monto"
-              value={precioHora}
+              value={precioHora || ""}
               onChange={handleChange}
               name="precioHora"
             />
@@ -51,7 +45,7 @@ const FormAdd = () => {
             <input
               type="text"
               placeholder="Ingrese horas"
-              value={horas}
+              value={horas || ""}
               onChange={handleChange}
               name="horas"
             />
@@ -66,7 +60,7 @@ const FormAdd = () => {
               <i className="material-icons right">save</i>
             </button>
           </label>
-        </>
+        </div>
       )}
     </>
   );

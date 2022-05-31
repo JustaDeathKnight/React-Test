@@ -1,12 +1,21 @@
 import { types } from "../types/types";
 
-export const nominaReducer = (state = [], action) => {
-    
-    switch (action.type) {
-        case types.nominaAdd:
-            return [...state, action.payload];
-         
-        default:
-            return state;
-    }
+const initialState = {
+  data: [],
 }
+
+export const nominaReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.nominaAdd:
+      return {};
+
+    case types.nominaRead:
+      return {
+        ...state,
+        nomina: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};

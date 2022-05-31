@@ -15,7 +15,7 @@ const firebaseConfig = {
   projectId: "react-test-fbase",
   storageBucket: "react-test-fbase.appspot.com",
   messagingSenderId: "13491566983",
-  appId: "1:13491566983:web:5b3fd7ef66e835ea40bb22"
+  appId: "1:13491566983:web:5b3fd7ef66e835ea40bb22",
 };
 
 // Initialize Firebase

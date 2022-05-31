@@ -1,10 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Element from "../components/Element";
 import FormAdd from "../components/FormAdd";
 import Navbar from "../components/Navbar";
 
 const AppScreen = () => {
   const { auth } = useSelector((state) => state);
+
+  const data = useSelector((state) => state.nomina.data);
 
   return (
     <>
@@ -18,6 +21,27 @@ const AppScreen = () => {
         </h3>
         <hr />
         <FormAdd />
+
+        <hr />
+
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Cantidad</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((elemento) => {
+              return (
+                <div key={elemento.id}>
+                  <Element data={elemento} />;
+                </div>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </>
   );
