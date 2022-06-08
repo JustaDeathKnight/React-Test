@@ -24,7 +24,7 @@ const AppScreen = () => {
 
         <hr />
 
-        <table>
+        <table className="highlight centered">
           <thead>
             <tr>
               <th>Fecha</th>
@@ -32,12 +32,13 @@ const AppScreen = () => {
               <th>Eliminar</th>
             </tr>
           </thead>
+
           <tbody>
             {data.map((elemento) => {
               return (
-                <div key={elemento.id}>
-                  <Element data={elemento} />;
-                </div>
+                <tr key={elemento.id}>
+                  <Element data={elemento} />
+                </tr>
               );
             })}
           </tbody>

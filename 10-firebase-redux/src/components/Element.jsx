@@ -1,16 +1,28 @@
 import React from "react";
 
 const Element = ({ data }) => {
-  console.log(data);
   const { fecha, pago } = data;
+
+  let fechaFormateada;
+
+  if (fecha.seconds) {
+    fechaFormateada = fecha.toDate().toLocaleDateString();
+  } else {
+    fechaFormateada = fecha;
+  }
+
+  // `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} - ${date.getHours()}:${date.getUTCMinutes()}`;
+
   return (
-    <tr>
-      <td>{new Date().setTime(fecha.seconds)}</td>
+    <>
+      <td>{fechaFormateada}</td>
       <td>{pago}</td>
       <td>
-        <button className="red darken-4">Eliminar</button>
+        <button className="btn waves-effect waves-light red darken-4">
+          Eliminar
+        </button>
       </td>
-    </tr>
+    </>
   );
 };
 

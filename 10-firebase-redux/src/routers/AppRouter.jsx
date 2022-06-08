@@ -18,14 +18,12 @@ const AppRouter = () => {
   const [log, setLog] = useState(false);
 
   useEffect(() => {
-    firebase.auth().onAuthStateChanged(
-      async (user) => {
+    firebase.auth().onAuthStateChanged(async (user) => {
       if (user) {
         dispatch(login(user.uid, user.displayName));
         setLog(true);
 
         const nominaData = await loadData(user.uid);
-        
         dispatch(leerRegistros(nominaData));
       } else {
         setLog(false);
